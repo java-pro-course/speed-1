@@ -1,10 +1,21 @@
 package com.company;
 
 import java.util.Scanner;
+
 class Triangle{
     private Point A;
     private Point B;
     private Point C;
+
+    public Triangle(Point p1, Point p2, Point p3) {
+        this.A = p1;
+        this.B = p2;
+        this.C = p3;
+    }
+
+    public int P(Point AB, Point BC, Point CA){
+        return Point.findDistance(AB, BC) + Point.findDistance(CA, AB) + Point.findDistance(BC, CA);
+    }
 }
 
 class Point{
@@ -48,6 +59,7 @@ public class Main {
         System.out.println("Введите координаты второй точки");
         Point p3 = new Point(in.nextInt(), in.nextInt());
         System.out.println("Вот периметр треугольника: ");
-        System.out.println(Point.findDistance(p1, p2) + Point.findDistance(p3, p2) + Point.findDistance(p1, p3));
+        Triangle triangle = new Triangle(p1, p2, p3);
+        System.out.println(triangle.P(p1, p2, p3));
     }
 }
