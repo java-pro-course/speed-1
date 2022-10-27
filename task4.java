@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -37,6 +36,5 @@ public class Main {
         System.out.println(findDistance(p1, p2));
     }
     public static double findDistance(Point p1, Point p2){
-        return Math.sqrt((p2.getX() - p1.getX()) + (p2.getY()- p1.getY()));
+        return Math.sqrt(Math.pow((p2.getX() - p1.getX()), 2) + Math.pow((p2.getY()- p1.getY()), 2));
     }
-}
