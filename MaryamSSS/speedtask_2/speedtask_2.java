@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int[] randoms = new int[10];
+        int[] randoms = new int[100];
         Random random = new Random();
         int m = 0;
         int min = 100;
