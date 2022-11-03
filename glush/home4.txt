@@ -1,30 +1,52 @@
-import java.util.*;
-
-
-class tochka {
-// извините что не смог полностью создать метод при помощи конструктора, я запутался.
-
+class Point {
     private int x;
-    private int y;
     private int x2;
+    private int y;
     private int y2;
-    private int z;
-    private int k;
-    private int otvet;
-    public tochka(int x, int y, int x2, int y2, int otvet, int z, int k) {
-        this.y = y;
+
+    Point(int x, int x2, int y, int y2) {
         this.x = x;
-        this.y2 = y2;
         this.x2 = x2;
-        this.z = y * x;
-        this.k = y2 * x2;
-        this.otvet = z - k;
+        this.y = y;
+        this.y2 = y2;
     }
+
+
+
+    public int getx() {
+        return x;
+    }
+
+    public int getx2() {
+        return x2;
+    }
+
+    public int gety() {
+        return y;
+    }
+
+    public int gety2() {
+        return y2;
+    }
+
     public void getInfo(){
-        System.out.println("Введите 2 позиции для 1 точки и 2 для другой чтобы получить расстояние между ними");
-
-        System.out.println("Расстояние: " + otvet );
+        int d = gety();
+        int a = getx();
+        int d2 = gety2();
+        int a2 = getx2();
+        int s = d * a;
+        int s2 = d2 * a2;
+        int l = s - s2;
+        System.out.println("Расстояние между точками в общем " + l);
     }
+}
 
+public class Main {
+    public static void main(String[] args) {
 
+        Point Point = new Point(10, 15, 100, 10);
+
+        Point.getInfo();
+
+    }
 }
