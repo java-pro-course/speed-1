@@ -7,7 +7,7 @@ class Person{
     private String patronymic;
     private int age;
     private String ciuitatem;
-    protected int luck;
+    protected int luck;  // чем отличается protected от привата?
     // /\
     // || ??
     public Person(String name, String surname, String patronymic, int age, String ciuitatem, int luck){
@@ -109,7 +109,7 @@ class Plane {
     }
     public List<Person> flight(List<Person> p){
         for (Person person : p){
-            person.setLuck(person.luck += 1); // <<<
+            person.setLuck(person.luck += 1); // <<< тут должна быть ошибка в luck если приватное
         }
         return p;
     }
