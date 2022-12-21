@@ -1,0 +1,79 @@
+import java.util.Scanner;
+class Computer{
+    private String brand;
+    private String color;
+    private int hd_capacity;
+    private int RAM;
+    Computer(String brand, String color, int hd_capacity, int RAM) {
+        this.brand = brand;
+        this.color = color;
+        this.hd_capacity = hd_capacity;
+        this.RAM = RAM;
+    }
+        Computer(){}
+    public void getInfo(){
+        System.out.println("object computer, brand: "+ brand);
+        System.out.println("color: " + color);
+        System.out.println("hd_capacity: " + hd_capacity);
+        System.out.println("RAM: "+ RAM);
+    }
+    public String getBrand() {
+        return brand;
+    }
+    public String getColor() {
+        return color;
+    }
+    public int getHd_capacity() {
+        return hd_capacity;
+    }
+    public int getRAM() {
+        return RAM;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+    public void setColor(String color) {
+        if(this.color != color){
+            this.color = color;}
+        else{
+            System.out.println("You want change color or not? Enter new colour!!! >:(");
+        }
+    }
+    public void setHd_capacity(int hd_capacity) {
+        this.hd_capacity = hd_capacity;
+    }
+    public void setRAM(int RAM) {
+        this.RAM = RAM;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter brand: ");
+        String brand = in.nextLine();
+        System.out.println("Enter color: ");
+        String color = in.nextLine();
+        System.out.println("Enter : hd_capacity");
+        int hd_capacity = in.nextInt();
+        System.out.println("Enter RAM: ");
+        int RAM = in.nextInt();
+        Computer c = new Computer(brand, color, hd_capacity, RAM);
+        c.getInfo();
+        System.out.println("If you want change color enter 1, else enter 0");
+        int a = in.nextInt();
+        if(a==1){
+            System.out.println("Enter new color: ");
+            String n = color;
+            color = in.nextLine();
+            color = in.nextLine();
+            c.setColor(color);
+            c.getInfo();
+        }
+        if (a==0) {
+            System.out.println("Ok -_-");
+    }
+        if(!(a == 1 || a == 0)){
+            System.out.println("Stop joking >:(");
+        }
+    }
+        }
