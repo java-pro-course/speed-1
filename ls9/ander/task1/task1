@@ -1,0 +1,102 @@
+import java.util.Scanner;
+class Person{
+    private String name;
+    private String name2;
+    private String name3;
+    private String gender;
+    private int year_bi;
+   public Person(String name, String name2, String name3, String gender, int year_bi){
+        this.name=name;
+        this.name2 = name2;
+        this.name3 = name3;
+    this.gender = gender;
+    this.year_bi = year_bi;
+    }
+    public Person(){}
+public void getInfo(){
+    System.out.println("object person, name: "+name);
+    System.out.println("last name: "+name2);
+    System.out.println("middle name: "+name3);
+    System.out.println("gender: "+gender);
+    System.out.println("year of birth: "+year_bi);
+}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public String getName3() {
+        return name3;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getYear_bi() {
+        return year_bi;
+    }
+}
+class Student extends Person {
+    private int num_school;
+    private String name_s;
+    private int clas;
+    private String l_object;
+
+    public Student( int num_school, String name_s, int clas, String l_object, String name, String name2, String name3, String gender, int year_bi) {
+        super(name, name2, name3, gender, year_bi);
+        this.num_school = num_school;
+        this.clas = clas;
+        this.l_object = l_object;
+        this.name_s = name_s;
+    }
+
+    Student() {
+    }
+
+    public void getInfoStudent() {
+        System.out.println("Student:");
+        System.out.println("number of school: " + num_school);
+        System.out.println("class: " + clas);
+        System.out.println("favorite object: " + l_object);
+        System.out.println("name of school: " + name_s);
+    }
+}
+class Employee extends Person {
+    private String name_company;
+    private String position;
+    private int salary;
+    private String f_day;
+
+    public Employee( String name_company, String position, int salary, String f_day, String name, String name2, String name3, String gender, int year_bi) {
+        super(name, name2, name3, gender, year_bi);
+        this.name_company = name_company;
+        this.position = position;
+        this.salary = salary;
+        this.f_day = f_day;
+    }
+
+    Employee() {
+    }
+
+    public void getInfoEmployee() {
+        System.out.println("Employee:");
+        System.out.println("company name: " + name_company);
+        System.out.println("position: " + position);
+        System.out.println("salary: " + salary);
+        System.out.println("favourite day: " + f_day);
+    }
+}
+    public class Main {
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            Student s = new Student(4, "Lomonosov 's name", 8, "IT", "Sergey", "Razumovsky", "Olegovich", "man", 21);
+            Employee e = new Employee("Home depot", "director", 120000, "Sunday", "Oleg", "Volkov", "Sergeevich", "man", 23);
+       s.getInfoStudent();
+       e.getInfoEmployee();
+        }
+    }
