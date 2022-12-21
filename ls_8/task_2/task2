@@ -1,0 +1,80 @@
+import java.util.Scanner;
+class Plane{
+    private String aircraft_model;
+    private int max_height;
+    private int max_speed;
+    private int pass_capacity;
+    private int load_capacity;
+    Plane(String aircraft_model, int max_height, int max_speed, int pass_capacity, int load_capacity) {
+        this.aircraft_model = aircraft_model;
+        this.max_height = max_height;
+        this.max_speed = max_speed;
+        this.pass_capacity = pass_capacity;
+        this.load_capacity = load_capacity;
+    }
+    Plane(String aircraft_model, int max_height, int max_speed){
+        this.aircraft_model = aircraft_model;
+        this.max_height=max_height;
+        this.max_speed=max_speed;
+        }
+    Plane(){}
+    public void getInfo(){
+        System.out.println("object plane, aircraft_model: " + aircraft_model);
+        System.out.println("max_height: "+ max_height);
+        System.out.println("max_speed: " +max_speed);
+        System.out.println("pass_capacity: " + pass_capacity);
+        System.out.println("load_capacity: " + load_capacity);
+    }
+    public void improvePlane(Plane plane, int speed, int height){
+    setMax_height(max_height=max_height + 15);
+        setMax_speed(max_speed=max_speed + 20);
+}
+    public String getAircraft_model() {
+        return aircraft_model;
+    }
+
+    public int getMax_height() {
+        return max_height;
+    }
+
+    public int getMax_speed() {
+        return max_speed;
+    }
+
+    public int getPass_capacity() {
+        return pass_capacity;
+    }
+
+    public int getLoad_capacity() {
+        return load_capacity;
+    }
+
+    public void setAircraft_model(String aircraft_model) {
+        this.aircraft_model = aircraft_model;
+    }
+
+    public void setMax_height(int max_height) {
+        this.max_height = max_height;
+    }
+
+    public void setMax_speed(int max_speed) {
+        this.max_speed = max_speed;
+    }
+
+    public void setPass_capacity(int pass_capacity) {
+        this.pass_capacity = pass_capacity;
+    }
+
+    public void setLoad_capacity(int load_capacity) {
+        this.load_capacity = load_capacity;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Plane plane = new Plane("MC-21", 600, 270, 150, 4);
+        plane.getInfo();
+        plane.improvePlane(plane, 15, 20);
+        plane.getInfo();
+    }
+}
