@@ -1,0 +1,222 @@
+import java.util.Scanner;
+class Person{
+    private String name;
+    private String name2;
+    private String name3;
+    private String gender;
+    private int year_bi;
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public Person(String name, String name2, String name3, String gender, int year_bi){
+        this.name=name;
+        this.name2 = name2;
+        this.name3 = name3;
+        this.gender = gender;
+        this.year_bi = year_bi;
+        this.age = 2022 - year_bi;
+    }
+    public Person(String[] name, String[] name2, String[] name3, String gender, int year_bi){}
+    public void getInfo(){
+        System.out.println("object person, name: " + name);
+        System.out.println("last name: " + name2);
+        System.out.println("middle name: " + name3);
+        System.out.println("gender: " + gender);
+        System.out.println("year of birth: " + year_bi);
+        System.out.println("age: " + age);
+    }
+    public void happyBirthday(){
+        this.age = age + 1;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public String getName3() {
+        return name3;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getYear_bi() {
+        return year_bi;
+    }
+
+    public void setName(String name) {
+        this.name=name;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+    public void setName3(String name3){
+        this.name3=name3;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+}
+class Student extends Person {
+    private int num_school;
+    private String name_s;
+    private int clas;
+    private String l_object;
+
+    public Student(String[] name, String[] name2, String[] name3, String gender, int year_bi, int num_school, String name_s, int clas, String l_object) {
+        super(name, name2, name3, gender, year_bi);
+        this.num_school = num_school;
+        this.clas = clas;
+        this.l_object = l_object;
+        this.name_s = name_s;
+    }
+
+    Student(String name, String name2, String name3, String gender, int year_bi, int num_school, String name_s, int clas, String l_object) {
+        super(name, name2, name3, gender, year_bi);
+    }
+
+    public void getInfoStudent() {
+        System.out.println("Student:");
+        System.out.println("number of school: " + num_school);
+        System.out.println("class: " + clas);
+        System.out.println("favorite object: " + l_object);
+        System.out.println("name of school: " + name_s);
+    }
+}
+class Employee extends Person {
+    private String name_company;
+    private String position;
+    private int salary;
+    private String f_day;
+
+    public Employee(String name, String name2, String name3, String gender, int year_bi, String name_company, String position, int salary, String f_day) {
+        super(name, name2, name3, gender, year_bi);
+        this.name_company = name_company;
+        this.position = position;
+        this.salary = salary;
+        this.f_day = f_day;
+    }
+
+   public Employee (String name, String name2, String name3, String gender, int year_bi) {
+       super(name, name2, name3, gender, year_bi);
+   }
+
+    public void getInfoEmployee() {
+        System.out.println("Employee:");
+        System.out.println("company name: " + name_company);
+        System.out.println("position: " + position);
+        System.out.println("salary: " + salary);
+        System.out.println("favourite day: " + f_day);
+    }
+}
+class SchoolClass{
+    int a;
+   String[] student = new String[a];
+    String fio;
+    int rating;
+
+
+    public SchoolClass(Student[] student, String fio, int rating) {
+       this.a = a;
+        this.fio = fio;
+        this.rating = rating;
+    }
+    public int getA() {
+        return a;
+    }
+
+    public String[] getStudent() {
+        return student;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public void setStudent(String[] student) {
+        this.student = student;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+    public void getInfoSC() {
+        System.out.println("Initials classroom teacher: " + fio);
+        System.out.println("rating: " + rating);
+        System.out.println("information about students: " + student);
+        for (Student st: student) {
+            System.out.println(st.getName() + " " + st.getName2());
+            st.getInfo();
+            System.out.println("\n");
+        }
+    }
+}
+public class Main {
+    public static int Rat(int[] sumOfrating, int b) {
+        int rating = 0;
+        for (int i = 0; i < b; i++) {
+            rating += sumOfrating[i];
+        }
+        return rating/= b;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String temp;
+        System.out.println("Hello! It's me.... AGAIN");
+        System.out.println("Enter initials classroom teacher: ");
+        String fio = in.nextLine();
+        System.out.println("Enter number of people in class: ");
+        int n = in.nextInt();
+        System.out.println("Enter number of class: ");
+        int clas = in.nextInt();
+        System.out.println("Enter number of school: ");
+        int num_school = in.nextInt();
+        System.out.println("Enter rating: ");
+        temp = in.nextLine();
+        String  name_s = in.nextLine();
+        Student[] student = new Student[n];
+        int[] rat = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter students initial (with space): ");
+            System.out.println("Well, as they say: repetition is the mother of learning :^");
+            temp = in.nextLine();
+            String[] name = in.nextLine().split(" ");
+            String[] name2 = in.nextLine().split(" ");
+            String[] name3 = in.nextLine().split(" ");
+            System.out.println("Enter gender (pleaseeee): ");
+            String gender = in.nextLine();
+            System.out.println("Enter year of birth: ");
+            int year_bi = in.nextInt();
+            System.out.println("Are you favorite subject? If no, just enter random word ;)");
+            temp= in.nextLine();
+            String l_object = in.nextLine();
+            System.out.println("What is student's rating?");
+            rat[i] = in.nextInt();
+            student[i] = new Student(name, name2, name3, gender, year_bi, num_school, name_s, clas, l_object);
+        }
+        int rating = Rat(rat, n);
+        SchoolClass SC = new SchoolClass(student, fio, rating);
+        SC.getInfoSC();
+    }
+}
