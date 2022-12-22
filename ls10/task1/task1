@@ -1,0 +1,140 @@
+import java.util.Scanner;
+interface Printable{
+     void getInfo();
+}
+abstract class Human{
+    public abstract void sleeping();
+}
+class Person implements Printable{
+    private String name;
+    private String name2;
+    private String name3;
+    private String gender;
+    private int year_bi;
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public Person(String name, String name2, String name3, String gender, int year_bi){
+        this.name=name;
+        this.name2 = name2;
+        this.name3 = name3;
+        this.gender = gender;
+        this.year_bi = year_bi;
+        this.age = 2022 - year_bi;
+    }
+    public Person(){}
+    @Override
+    public void getInfo(){
+        System.out.println("object person, name: " + name);
+        System.out.println("last name: " + name2);
+        System.out.println("middle name: " + name3);
+        System.out.println("gender: " + gender);
+        System.out.println("year of birth: " + year_bi);
+        System.out.println("age: " + age);
+    }
+    public int happyBirthday(){
+        int n = age + 1;
+        return n;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public String getName3() {
+        return name3;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getYear_bi() {
+        return year_bi;
+    }
+
+}
+class Student extends Person implements Printable{
+    private int num_school;
+    private String name_s;
+    private int clas;
+    private String l_object;
+
+    public Student(String name, String name2, String name3, String gender, int year_bi, int num_school, String name_s, int clas, String l_object) {
+        super(name, name2, name3, gender, year_bi);
+        this.num_school = num_school;
+        this.clas = clas;
+        this.l_object = l_object;
+        this.name_s = name_s;
+    }
+
+    Student() {
+    }
+    @Override
+    public void getInfo(){
+        super.getInfo();
+        System.out.println("object student: ");
+        System.out.println("number of school: " + num_school);
+        System.out.println("class: " + clas);
+        System.out.println("favorite object: " + l_object);
+        System.out.println("name of school: " + name_s);
+    }
+    public void getInfoStudent() {
+        System.out.println("Student:");
+        System.out.println("number of school: " + num_school);
+        System.out.println("class: " + clas);
+        System.out.println("favorite object: " + l_object);
+        System.out.println("name of school: " + name_s);
+    }
+}
+class Employee extends Person implements Printable{
+    private String name_company;
+    private String position;
+    private int salary;
+    private String f_day;
+
+    public Employee(String name, String name2, String name3, String gender, int year_bi, String name_company, String position, int salary, String f_day) {
+        super(name, name2, name3, gender, year_bi);
+        this.name_company = name_company;
+        this.position = position;
+        this.salary = salary;
+        this.f_day = f_day;
+    }
+
+    Employee() {
+    }
+
+    @Override
+    public void getInfo(){
+        super.getInfo();
+        System.out.println("Employee:");
+        System.out.println("company name: " + name_company);
+        System.out.println("position: " + position);
+        System.out.println("salary: " + salary);
+        System.out.println("favourite day: " + f_day);
+    }
+    public void getInfoEmployee() {
+        System.out.println("Employee:");
+        System.out.println("company name: " + name_company);
+        System.out.println("position: " + position);
+        System.out.println("salary: " + salary);
+        System.out.println("favourite day: " + f_day);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Student s = new Student("Rodion","Raskolnikov", "Romanovich", "man", 1994, 4, "Lomonosov's name", 8, "literature");
+        Employee e = new Employee("Dmitry", "Razumikhin", "Prokofievich", "man", 1996, "eksmo", "translatore", 56000, "Sunday");
+        s.getInfoStudent();
+        s.getInfo();
+        e.getInfoEmployee();
+        e.getInfo();
+    }
+}
